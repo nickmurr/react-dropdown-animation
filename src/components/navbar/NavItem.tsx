@@ -24,17 +24,15 @@ const NavItem = (props: IProps) => {
   });
 
   return (
-    <li className={nav_item} ref={props.children ? ref : undefined}>
-      <a href="#" className="icon-button" onClick={props.toggle}>
-        {props.icon}
-      </a>
+    <RefConsumer.Provider value={{ setOpen: props.setOpen }}>
+      <li className={nav_item} ref={props.children ? ref : undefined}>
+        <a href="#" className="icon-button" onClick={props.toggle}>
+          {props.icon}
+        </a>
 
-      {props?.open && (
-        <RefConsumer.Provider value={props.setOpen}>
-          {props.children}
-        </RefConsumer.Provider>
-      )}
-    </li>
+        {props?.open && props.children}
+      </li>
+    </RefConsumer.Provider>
   );
 };
 
