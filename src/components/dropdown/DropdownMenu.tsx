@@ -1,6 +1,6 @@
-import React, { ReactNode } from 'react';
-import style from './Dropdown.module.css';
-import DropdownItem from './DropdownItem';
+import React, { ReactNode } from "react";
+import style from "./Dropdown.module.css";
+import DropdownItem from "./DropdownItem";
 import {
   CogIcon,
   ChevronIcon,
@@ -10,11 +10,11 @@ import {
   CaretIcon,
   MessengerIcon,
   PlusIcon,
-} from '../../icons/icons';
-import { CSSTransition } from 'react-transition-group';
+} from "../../icons/icons";
+import { CSSTransition } from "react-transition-group";
 
 const DropdownMenu = () => {
-  const [activeMenu, setActiveMenu] = React.useState('main');
+  const [activeMenu, setActiveMenu] = React.useState("main");
   const [menuHeight, setMenuHeight] = React.useState();
 
   function calcHeight(el: any) {
@@ -27,7 +27,7 @@ const DropdownMenu = () => {
   return (
     <div className={style.dropdown} style={{ height: menuHeight }}>
       <CSSTransition
-        in={activeMenu === 'main'}
+        in={activeMenu === "main"}
         timeout={timeOut}
         unmountOnExit
         classNames="menu-primary"
@@ -46,13 +46,13 @@ const DropdownMenu = () => {
       </CSSTransition>
 
       <CSSTransition
-        in={activeMenu === 'settings'}
+        in={activeMenu === "settings"}
         timeout={timeOut}
         unmountOnExit
         classNames="menu-secondary"
         onEnter={calcHeight}
       >
-        <div className="menu">
+        <div className={style.menu}>
           <DropdownItem
             leftIcon={<ArrowIcon />}
             goToMenu="main"
